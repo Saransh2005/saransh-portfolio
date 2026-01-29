@@ -12,8 +12,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Saransh | Mindx",
-  description: "Portfolio",
+  title: "Mindx | AI, App Development & Design Agency",
+  description: "Mindx is a digital agency specializing in Machine Learning, Android Apps, Web Design, and Personal Branding.",
+  // Optional: Add keywords for Google
+  keywords: ["Machine Learning", "Android Studio", "Figma", "Web Design", "Agency", "Mindx"],
 };
 
 export default function RootLayout({

@@ -142,14 +142,15 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div>
-                        <a 
-                            href="/contact" 
-                            className="inline-block bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition"
-                        >
-                            Work With Us
-                        </a>
-                    </div>
+                    <div className="mt-8">
+                      <a 
+                        href="/resume.pdf" 
+                        download="resume.pdf" 
+                        className="text-white font-medium tracking-widest uppercase text-sm hover:text-gray-400 transition border-b border-white/0 hover:border-white pb-1"
+                      > 
+                        DOWNLOAD RESUME
+                      </a>
+</div>
                 </FadeIn>
             </div>
 
@@ -162,6 +163,7 @@ export default function Home() {
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                 />
                 <div className="absolute bottom-6 left-6 bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                    <p className="text-xs font-mono text-white">Saransh Singh</p>
                     <p className="text-xs font-mono text-white">Founder & Lead Engineer</p>
                 </div>
             </div>

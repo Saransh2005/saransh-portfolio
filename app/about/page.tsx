@@ -1,109 +1,146 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import Navbar from "../components/Navbar"; 
 
-// --- Navbar (Local copy for now) ---
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const { scrollY } = useScroll();
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const hasScrolled = latest > 50;
-    if (isScrolled !== hasScrolled) setIsScrolled(hasScrolled);
-  });
-
-  return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
-      <motion.nav
-        layout
-        initial={{ width: "100%", y: 0, borderRadius: 0 }}
-        animate={{
-          width: isScrolled ? "auto" : "100%",
-          y: isScrolled ? 20 : 0,
-          borderRadius: isScrolled ? "99px" : "0px",
-          backgroundColor: isScrolled ? "rgba(30, 30, 30, 0.9)" : "rgba(0,0,0,0)",
-          padding: isScrolled ? "12px 32px" : "24px 32px",
-        }}
-        className="pointer-events-auto backdrop-blur-md flex items-center justify-between mx-auto z-50 overflow-hidden text-white"
-        style={{ maxWidth: isScrolled ? "fit-content" : "80rem" }}
-      >
-        <div className="font-bold text-xl tracking-tighter">Mindx</div>
-        <div className="hidden md:flex gap-6 ml-8 text-sm font-medium text-gray-300">
-           <a href="/" className="hover:text-white transition">Home</a>
-           <a href="/#work" className="hover:text-white transition">Work</a>
-           <a href="/about" className="text-white">About</a>
-           <a href="/contact" className="hover:text-white transition">Contact</a>
-        </div>
-      </motion.nav>
-    </div>
-  );
-};
+// Reusable Fact Card Component
+const FactCard = ({ number, label, desc }: { number: string, label: string, desc: string }) => (
+  <div className="bg-neutral-900 p-8 md:p-12 flex flex-col justify-between h-[300px] border border-white/5 rounded-sm hover:bg-neutral-800 transition-colors">
+      <div>
+          <h3 className="text-5xl md:text-6xl font-bold mb-2 text-white">{number}</h3>
+          <p className="text-xl text-gray-300">{label}</p>
+      </div>
+      <p className="text-sm text-gray-500 leading-relaxed border-t border-white/10 pt-6 mt-6">
+          {desc}
+      </p>
+  </div>
+);
 
 export default function AboutPage() {
   return (
     <main className="bg-black text-white min-h-screen">
       <Navbar />
 
-      {/* Hero Section with Blur Animation */}
+      {/* Hero Section */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-        
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/p2.avif" // Use a dark/moody image here (rename your file to p2.jpg or similar)
-            alt="About Background"
+            src="/p8.avif" 
+            alt="About Mindx"
             fill
-            className="object-cover opacity-60"
+            className="object-cover opacity-100"
           />
-          {/* Gradient Overlay to make text readable */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
         </div>
 
-        {/* Animated Text Overlay */}
-        <div className="relative z-10 max-w-4xl px-6 text-center md:text-left md:absolute md:bottom-20 md:left-20">
+        <div className="relative z-10 max-w-5xl px-6 text-center md:text-left md:absolute md:bottom-24 md:left-24">
           <motion.h1 
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight mb-8"
           >
-            It all began in a <br /> 
-            <span className="text-gray-400">small studio nestled</span> <br />
-            in the heart of the city.
+            We bridge the gap <br /> 
+            <span className="text-gray-400">between Intelligence</span> <br />
+            and Imagination.
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="mt-8 text-lg text-gray-300 max-w-xl"
+            className="text-xl text-gray-300 max-w-2xl leading-relaxed"
           >
-            I’m Saransh, a Data Analyst and UI/UX Designer driven by the belief that data 
-            is just a story waiting to be told.
+            Mindx isn't just a dev shop. We are a digital collective fusing 
+            <strong> Python-powered Logic</strong> with <strong>World-class Design</strong>.
           </motion.p>
         </div>
       </section>
 
-      {/* Story / Text Section */}
-      <section className="py-32 px-6 max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-gray-200">The Journey</h2>
-        <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
+      {/* Story / Mission Section */}
+      <section className="py-32 px-6 max-w-4xl mx-auto">
+        <h2 className="text-sm font-mono text-gray-500 mb-8 uppercase tracking-widest">The Mission</h2>
+        
+        <div className="space-y-12 text-xl md:text-2xl text-gray-300 leading-relaxed font-light">
             <p>
-                My journey started with a simple curiosity: how do things work? 
-                That curiosity led me from the logic of Python and SQL to the creativity of 
-                Framer and Web Design.
+                <span className="text-white font-semibold">The digital world is divided.</span> On one side, you have powerful backend engineers who speak in algorithms. On the other, creative designers who speak in emotions.
             </p>
             <p>
-                Today, I sit at the intersection of these two worlds. I don't just build dashboards; 
-                I build experiences. I don't just write code; I craft narratives.
+                At Mindx, we speak both.
             </p>
             <p>
-                Whether it's automating a complex report or designing a pixel-perfect landing page, 
-                my goal remains the same: clarity, beauty, and impact.
+                Our foundation is built on deep technical expertise—<strong>Machine Learning, Android Development, and Data Science.</strong> But we believe that even the smartest code is useless if it doesn't feel human.
             </p>
+        </div>
+      </section>
+
+      {/* NEW: Facts Section (from screenshot) */}
+      <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/10">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
+            <h2 className="text-4xl md:text-5xl font-bold font-display">Facts</h2>
+            <p className="max-w-xl text-gray-400 text-lg leading-relaxed">
+                Founded with a vision for transformative creativity, Mindx has rapidly grown into a premier digital lab. Our commitment to clean code and stunning design drives us to deliver impactful solutions.
+            </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-20">
+            <FactCard 
+                number="20+" 
+                label="Projects" 
+                desc="Since our inception, we have successfully shipped over 20 tailored digital products." 
+            />
+            <FactCard 
+                number="3" 
+                label="Countries" 
+                desc="With a digital footprint across continents, our operations exemplify global reach." 
+            />
+            <FactCard 
+                number="5" 
+                label="Collaborators" 
+                desc="A dedicated team of developers and designers ensuring flawless execution." 
+            />
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-32 px-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 pt-24 border-t border-white/10">
+            <div>
+                <h3 className="text-white font-bold text-3xl mb-6">Engineering</h3>
+                <ul className="space-y-4 text-gray-400">
+                    <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-white rounded-full" />
+                        Machine Learning & AI
+                    </li>
+                    <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-white rounded-full" />
+                        Android App Development (Kotlin)
+                    </li>
+                    <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-white rounded-full" />
+                        Complex Backend Systems
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 className="text-white font-bold text-3xl mb-6">Design</h3>
+                <ul className="space-y-4 text-gray-400">
+                    <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-white rounded-full" />
+                        UI/UX & Prototyping (Figma)
+                    </li>
+                    <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-white rounded-full" />
+                        Personal Branding
+                    </li>
+                    <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-white rounded-full" />
+                        Web Experiences
+                    </li>
+                </ul>
+            </div>
         </div>
       </section>
 

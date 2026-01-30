@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Link from "next/link"; // We use Next.js Link for faster navigation
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,16 +29,14 @@ export default function Navbar() {
         className="pointer-events-auto backdrop-blur-md flex items-center justify-between mx-auto z-50 overflow-hidden text-white"
         style={{ maxWidth: isScrolled ? "fit-content" : "80rem" }}
       >
-        <Link href="/" className="font-bold text-xl tracking-tighter hover:opacity-80 transition">
+        {/* 1. MindX Logo - ALWAYS links to Home */}
+        <Link href="/" className="font-bold text-xl tracking-tighter hover:opacity-80 transition cursor-pointer">
           Mindx
         </Link>
         
-        {/* Desktop Links */}
+        {/* 2. Desktop Links - ALWAYS visible */}
         <div className="hidden md:flex gap-6 ml-8 text-sm font-medium text-gray-300">
-           {/* Link to Home Anchor for Work */}
            <Link href="/#work" className="hover:text-white transition">Work</Link>
-           
-           {/* Link to Separate Pages */}
            <Link href="/about" className="hover:text-white transition">About</Link>
            <Link href="/contact" className="hover:text-white transition">Contact</Link>
         </div>
@@ -64,6 +62,9 @@ export default function Navbar() {
              >
                 <X />
              </button>
+             
+             {/* Mobile Links */}
+             <Link href="/" onClick={() => setIsOpen(false)} className="text-3xl font-bold text-white">Home</Link>
              <Link href="/#work" onClick={() => setIsOpen(false)} className="text-3xl font-bold text-white">Work</Link>
              <Link href="/about" onClick={() => setIsOpen(false)} className="text-3xl font-bold text-white">About</Link>
              <Link href="/contact" onClick={() => setIsOpen(false)} className="text-3xl font-bold text-white">Contact</Link>

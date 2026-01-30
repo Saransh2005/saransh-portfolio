@@ -95,7 +95,6 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
             <FadeIn>
-                {/* Updated Headline for Mindx */}
                 <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white mix-blend-overlay mb-6">
                     WE BUILD <br /> THE FUTURE.
                 </h1>
@@ -124,7 +123,6 @@ export default function Home() {
                         From complex <strong>Machine Learning</strong> models to stunning <strong>Mobile Apps</strong>, we handle it all.
                     </p>
 
-                    {/* The Services List - Clearly displayed */}
                     <div className="grid grid-cols-2 gap-y-4 gap-x-8 mb-12">
                         <div>
                             <h4 className="text-white font-bold mb-2">Development</h4>
@@ -145,7 +143,6 @@ export default function Home() {
                     </div>
 
                     <div>
-                        {/* Updated button to link to Contact or Deck */}
                         <a 
                             href="/contact" 
                             className="inline-block bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition"
@@ -164,7 +161,6 @@ export default function Home() {
                     fill 
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                 />
-                {/* Optional Caption Overlay */}
                 <div className="absolute bottom-6 left-6 bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
                     <p className="text-xs font-mono text-white">Founder & Lead Engineer</p>
                 </div>
@@ -178,14 +174,14 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-12 font-display">Selected Projects</h2>
         </FadeIn>
         <div className="grid md:grid-cols-2 gap-x-8 gap-y-16">
-          <ProjectCard title="AI Prediction Engine" category="Machine Learning" year="2024" image="/p1.avif" />
-          <ProjectCard title="Fintech Mobile App" category="Android / Kotlin" year="2024" image="/p2.jpg" />
-          <ProjectCard title="Modern E-Commerce" category="Web Design & Dev" year="2023" image="/p3.jpg" />
-          <ProjectCard title="Luxury Brand Identity" category="Personal Branding" year="2023" image="/p4.jpg" />
+          <ProjectCard title="Nexus AI Prediction Engine" category="Machine Learning & Python" year="2025" image="/p1.jpeg" />
+          <ProjectCard title="VitalSense Health App" category="Android / Kotlin / Firebase" year="2025" image="/p2.png" />
+          <ProjectCard title="Lumina E-Commerce" category="Web Design & Next.js" year="2024" image="/p3.png" />
+          <ProjectCard title="Aura Brand Identity" category="Personal Branding & Figma" year="2024" image="/p4.jpeg" />
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section - UPDATED WITH 3 IMAGES */}
       <section className="py-20 px-6 max-w-7xl mx-auto border-t border-white/10">
         <div className="grid md:grid-cols-3 gap-12">
             <div className="md:col-span-1">
@@ -193,15 +189,25 @@ export default function Home() {
             </div>
             <div className="md:col-span-2 space-y-20">
                 {[
-                    { number: "01", title: "Discovery", desc: "We dive deep into your business goals, user needs, and market competition." },
-                    { number: "02", title: "Engineering", desc: "Our ML and Dev teams build scalable, robust architectures using Python and Java." },
-                    { number: "03", title: "Design", desc: "We use Figma to craft intuitive, pixel-perfect interfaces that users love." }
+                    // Added unique images for each step below
+                    { number: "01", title: "Discovery", desc: "We dive deep into your business goals, user needs, and market competition.", image: "/p5.avif" }, 
+                    { number: "02", title: "Engineering", desc: "Our ML and Dev teams build scalable, robust architectures using Python and Java.", image: "/p6.avif" },
+                    { number: "03", title: "Design", desc: "We use Figma to craft intuitive, pixel-perfect interfaces that users love.", image: "/p7.avif" }
                 ].map((step, i) => (
                     <FadeIn key={i} delay={i * 0.1}>
                         <span className="text-sm font-mono text-gray-500 block mb-4">{step.number}</span>
                         <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
                         <p className="text-gray-400 leading-relaxed text-lg">{step.desc}</p>
-                        <div className="h-64 bg-neutral-900 mt-8 rounded-sm border border-white/5"></div>
+                        
+                        {/* Always render the image container now that every step has an image */}
+                        <div className="relative h-64 mt-8 rounded-sm border border-white/5 overflow-hidden group">
+                            <Image 
+                                src={step.image}
+                                alt={`${step.title} Process`}
+                                fill
+                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                            />
+                        </div>
                     </FadeIn>
                 ))}
             </div>

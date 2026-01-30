@@ -13,7 +13,7 @@ export default function Footer() {
                 <h3 className="text-gray-500 mb-4 font-mono">Pages</h3>
                 <ul className="space-y-2 text-lg font-medium">
                     <li><a href="/" className="hover:text-gray-400">Home</a></li>
-                    <li><a href="/work" className="hover:text-gray-400">Work</a></li>
+                    <li><a href="/#work" className="hover:text-gray-400">Work</a></li>
                     <li><a href="/about" className="hover:text-gray-400">About</a></li>
                     <li><a href="/contact" className="hover:text-gray-400">Contact</a></li>
                 </ul>
@@ -23,16 +23,18 @@ export default function Footer() {
             <div>
                 <h3 className="text-gray-500 mb-4 font-mono">Socials</h3>
                 <ul className="space-y-2 text-lg font-medium">
-                    <li><a href="#" className="hover:text-gray-400">Instagram</a></li>
-                    <li><a href="#" className="hover:text-gray-400">YouTube</a></li>
-                    <li><a href="#" className="hover:text-gray-400">Twitter / X</a></li>
+                    <li><a href="https://www.instagram.com/saransh_singh8/" className="hover:text-gray-400">Instagram</a></li>
+                    <li><a href="https://www.youtube.com/@354_saranshsingh8" className="hover:text-gray-400">YouTube</a></li>
+                    <li><a href="https://www.linkedin.com/in/saransh0008/" className="hover:text-gray-400">LinkedIn</a></li>
                 </ul>
             </div>
 
             {/* Column 3 */}
             <div>
                 <h3 className="text-gray-500 mb-4 font-mono">Love</h3>
-                <p className="text-lg font-medium">Bume Studio</p>
+                <ul>
+                  <li><a href="https://www.figma.com/design/BHSgdlyT7RNCKW3eaKrrKo/Hushh-Wallet?node-id=0-1&t=Lo3oRDObuRONQBII-1" className="hover:text-gray-400">Figma</a></li>
+                </ul>
             </div>
         </div>
 

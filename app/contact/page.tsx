@@ -60,7 +60,7 @@ export default function ContactPage() {
             </h1>
             <div className="text-right">
                 <p className="text-gray-400 text-lg mb-2">Email</p>
-                <a href="mailto:info@vence.com" className="text-2xl font-medium hover:underline">saransh@mindx.com</a>
+                <a href="mailto:info@vence.com" className="text-2xl font-medium hover:underline">saranshchaudhary888@gmail.com</a>
             </div>
         </motion.div>
 
@@ -73,10 +73,10 @@ export default function ContactPage() {
         >
              {/* Replace this with your actual image file like '/contact-hero.jpg' */}
              <Image 
-                src="/p1.avif" 
+                src="/p9.avif" 
                 alt="Team"
                 fill
-                className="object-cover opacity-80"
+                className="object-cover opacity-100"
              />
              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         </motion.div>

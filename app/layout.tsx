@@ -5,6 +5,7 @@ import Cursor from "./components/Cursor";
 import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
 import MindxBar from "./components/MindxBar"; // <--- 1. IMPORT THIS
+import Preloader from "./components/Preloader";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-black md:cursor-none`}>
+        <Preloader />
 
         <SmoothScroll />
         <Cursor />

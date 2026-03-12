@@ -7,10 +7,10 @@ import SmoothScroll from "./components/SmoothScroll";
 import MindxBar from "./components/MindxBar"; // <--- 1. IMPORT THIS
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const spaceGrotesk = Space_Grotesk({ 
-  subsets: ["latin"], 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
   variable: "--font-space",
-  weight: ["300", "400", "500", "600", "700"] 
+  weight: ["300", "400", "500", "600", "700"]
 });
 
 export const metadata: Metadata = {
@@ -25,20 +25,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-black cursor-none`}>
-        
+      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-black md:cursor-none`}>
+
         <SmoothScroll />
         <Cursor />
 
         {/* 2. ADD IT HERE. It will float above everything else. */}
         <MindxBar />
-        
+
         <div className="relative z-10 bg-black mb-[500px] shadow-2xl border-b border-white/10">
-            {children}
+          {children}
         </div>
 
         <div className="fixed bottom-0 left-0 w-full z-0 h-[500px]">
-             <Footer />
+          <Footer />
         </div>
       </body>
     </html>
